@@ -12,9 +12,8 @@ const mappingfunctions = {
 }
 
 const Counter = (props) => {
-    const data = useSelector((state) => state.counter);
-    const { counter, name } = data;
-    const dispatch = useDispatch();
+    
+    const { counter, name } = props;
 
     React.useEffect(()=>{
         console.log(props);
@@ -23,10 +22,10 @@ const Counter = (props) => {
 
     return (
         <View style={styles.container}>
-            <Button title='Add' onPress={() =>dispatch(addition())} />
+            <Button title='Add' onPress={() =>props.addition()} />
             <Text>{counter}</Text>
             <Text>{name}</Text>
-            <Button title='Subtract' onPress={() =>dispatch(subtration())} />
+            <Button title='Subtract' onPress={() =>props.subtration()} />
         </View>
     );
 };
